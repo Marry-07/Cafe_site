@@ -35,7 +35,7 @@ document.querySelectorAll('.one-strange-card').forEach(card => {
       clearTimeout(card.autoTimer);
     }
 
-    // новыц таймер на 3 секунды
+    // новый таймер на 3 секунды
     card.autoTimer = setTimeout(() => {
       card.classList.remove('flip');
     }, 2000);
@@ -129,5 +129,112 @@ btnLeft.addEventListener('click', () => {
 });
 
 
+// модальное окно для заказа
+
+const allCards = document.querySelectorAll('.one-card');
+const popup = document.querySelector('.popup-order');
+const popupBtn = document.querySelector('.popup__btn');
+const overlay = document.querySelector('.overlay');
+const popupImg = document.querySelector('.popup__img');
+
+function addPopup() {
+  popup.classList.remove('hide');
+  overlay.classList.remove('hide');
+};
+
+allCards.forEach((card) => {
+  const btnCard = card.querySelector('.btn');
+  const src = card.querySelector('.photo').getAttribute('src');
+
+  btnCard.addEventListener('click', () => {
+    popupImg.src = src;
+    addPopup();
+  });
+});
 
 
+popupBtn.addEventListener('click', () => {
+  popup.classList.add('hide');
+  overlay.classList.add('hide');
+});
+
+
+document.addEventListener('keydown', (evt) => {
+  if((evt.key === 'Escape') && (!popup.classList.contains('hide'))){
+    popup.classList.add('hide');
+    overlay.classList.add('hide');
+  };
+});
+
+overlay.addEventListener('click', () => {
+  popup.classList.add('hide');
+  overlay.classList.add('hide');
+});
+
+
+function clearValid() {
+  let inpts = document.querySelectorAll('.reg-inp');
+  inpts.forEach((elem) => {
+    elem.value = "";
+  })
+}
+
+// вход и регистрация
+
+const regForm = document.querySelector('.reg');
+const signBtn = document.querySelector('.signBtn');
+const regBtn = document.querySelector('.regBtn');
+const closeBtn = document.querySelector('.form-btn');
+const regFormElem = document.querySelector('.form-reg')
+
+signBtn.addEventListener('click', () => {
+  regForm.classList.remove('hide');
+  overlay.classList.remove('hide');
+});
+
+regFormElem.addEventListener('submit', async (evt) => {
+  evt.preventDefault();
+
+  const formData = new FormData(regFormElem);
+
+  try {
+    const response = await fetch('save.php', {
+    method: "POST",
+    body: formData
+  });
+
+  if(!response.ok) {
+    throw new Error('Ошибка при отправке данных');
+  }
+
+  regForm.classList.add('hide');
+  overlay.classList.add('hide');
+  clearValid();
+  regFormElem.reset();
+  }
+  catch (err) {
+    console.log(err);
+  }
+});
+
+
+  regForm.classList.add('hide');
+  overlay.classList.add('hide');
+  clearValid();
+
+
+document.addEventListener('keydown', (evt) => {
+  if((evt.key === 'Escape') && (!regForm.classList.contains('hide'))){
+    regForm.classList.add('hide');
+    overlay.classList.add('hide');
+  };
+});
+
+overlay.addEventListener('click', () => {
+  regForm.classList.add('hide');
+});
+
+regBtn.addEventListener('click', () => {
+  regForm.classList.remove('hide');
+  overlay.classList.remove('hide');
+})

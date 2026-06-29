@@ -7,12 +7,36 @@
     <link rel="stylesheet" href="styles/fonts.css" />
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/media.css" />
+    <link rel="stylesheet" href="styles/reg.css">
 
     <title>Cafe site</title>
   </head>
   <body>
+    <div class="overlay hide"></div>
     <div class="back_wrap">
       <header class="header">
+
+        <div class="reg hide">
+
+          <form class="form-reg">
+
+            <p class="form-text">Вход/регистрация</p>
+
+            <label>
+              <input name="name" class="reg-inp name" type="text" required minlength="2" maxlength="30" pattern="[a-zA-Zа-яёА-ЯЁ]{2,30}" placeholder="Введите имя">
+            </label>
+            <label>
+              <input name="tel" class="reg-inp tel" type="tel" required pattern="(\+7|8)\d{10}" placeholder="Введите номер телефона">
+            </label>
+            <label>
+              <input name="email" class="reg-inp email" type="email" required minlength="2" placeholder="Введите почту">
+            </label>
+
+            <button type="submit" class="form-btn">Okey</button>
+            
+          </form>
+        </div>
+
         <div class="container">
           <a class="logo" href="#!">Bean Scene</a>
 
@@ -24,9 +48,9 @@
           </nav>
 
           <div class="header__reg">
-            <a href="#!">Sign In</a>
+            <a class="signBtn">Sign In</a>
 
-            <button class="btn">SignUp</button>
+            <button class="btn regBtn">Sign up</button>
           </div>
 
           <button class="header__btn" id="buttn">
@@ -83,7 +107,7 @@
 
           <div class="coffee-cards">
             <div class="one-card">
-              <img src="images/card_8.png" alt="coffee card one" />
+              <img class="photo" src="images/card_8.png" alt="coffee card one" />
               <div class="card-back">
                 <div class="cards-text">
                   <h4>Cappuccino</h4>
@@ -95,7 +119,7 @@
               <button class="btn">Order Now</button>
             </div>
             <div class="one-card">
-              <img src="images/card_6.png" alt="coffee card two" />
+              <img class="photo" src="images/card_6.png" alt="coffee card two" />
               <div class="card-back">
                 <div class="cards-text">
                   <h4>Cappuccino</h4>
@@ -107,20 +131,7 @@
               <button class="btn">Order Now</button>
             </div>
             <div class="one-card">
-              <img src="images/card_7.png" alt="coffee card three" />
-              <div class="card-back">
-                <div class="cards-text">
-                  <h4>Cappuccino</h4>
-                  <p>Coffee 50% | Milk 50%</p>
-                  <span>$8.50</span>
-                </div>
-              </div>
-
-              <button class="btn">Order Now</button>
-            </div>
-
-            <div class="one-card">
-              <img src="images/card_4.png" alt="coffee card four" />
+              <img class="photo" src="images/card_7.png" alt="coffee card three" />
               <div class="card-back">
                 <div class="cards-text">
                   <h4>Cappuccino</h4>
@@ -133,7 +144,7 @@
             </div>
 
             <div class="one-card">
-              <img src="images/card_5.jpg" alt="coffee card five" />
+              <img class="photo" src="images/card_4.png" alt="coffee card four" />
               <div class="card-back">
                 <div class="cards-text">
                   <h4>Cappuccino</h4>
@@ -146,7 +157,7 @@
             </div>
 
             <div class="one-card">
-              <img src="images/card_2.png" alt="coffee card six" />
+              <img class="photo" src="images/card_5.jpg" alt="coffee card five" />
               <div class="card-back">
                 <div class="cards-text">
                   <h4>Cappuccino</h4>
@@ -159,8 +170,8 @@
             </div>
 
             <div class="one-card">
-              <img src="images/card_1.png" alt="coffee card seven" />
-
+              <img class="photo" src="images/card_2.png" alt="coffee card six" />
+              
               <div class="card-back">
                 <div class="cards-text">
                   <h4>Cappuccino</h4>
@@ -173,7 +184,7 @@
             </div>
 
             <div class="one-card">
-              <img src="images/card_3.png" alt="coffee card eight" />
+              <img class="photo" src="images/card_1.png" alt="coffee card seven" />
 
               <div class="card-back">
                 <div class="cards-text">
@@ -187,7 +198,21 @@
             </div>
 
             <div class="one-card">
-              <img src="images/card_9.jpg" alt="coffee card nine" />
+              <img class="photo" src="images/card_3.png" alt="coffee card eight" />
+
+              <div class="card-back">
+                <div class="cards-text">
+                  <h4>Cappuccino</h4>
+                  <p>Coffee 50% | Milk 50%</p>
+                  <span>$8.50</span>
+                </div>
+              </div>
+
+              <button class="btn">Order Now</button>
+            </div>
+
+            <div class="one-card">
+              <img class="photo" src="images/card_9.jpg" alt="coffee card nine" />
 
               <div class="card-back">
                 <div class="cards-text">
@@ -298,7 +323,7 @@
 
                 <div class="one-strange-card-back">
                   <h4>Задняя сторона..</h4>
-                  <p>ну это типа да</p>
+                  <p>text</p>
                 </div>
               </div>
             </div>
@@ -315,7 +340,7 @@
 
                 <div class="one-strange-card-back">
                   <h4>Задняя сторона..</h4>
-                  <p>ну это типа да</p>
+                  <p>text</p>
                 </div>
               </div>
             </div>
@@ -332,7 +357,7 @@
 
                 <div class="one-strange-card-back">
                   <h4>Задняя сторона..</h4>
-                  <p>ну это типа да</p>
+                  <p>text</p>
                 </div>
               </div>
             </div>
@@ -349,7 +374,7 @@
 
                 <div class="one-strange-card-back">
                   <h4>Задняя сторона..</h4>
-                  <p>ну это типа да</p>
+                  <p>text</p>
                 </div>
               </div>
             </div>
@@ -481,6 +506,31 @@
         </div>
       </footer>
     </main>
+
+
+    <div class="popup-order hide">
+
+      <img class="popup__img" src="images/card_1.png" />
+      <h5>Cappuccino</h5>
+      <p>Coffee 50% | Milk 50%</p>
+      <span>$8.50</span>
+
+      <form class="popup__form">
+
+        <p class="popup__question">Would you like to buy right now?</p>
+
+        <label>
+
+          Yes <input name="isBuy" type="radio" value="yes" id="yes" checked>
+          No <input name="isBuy" type="radio" value="no" id="no">
+
+        </label>
+      </form>
+
+      <button class="popup__btn">Okey</button>
+
+    </div>
+
 
     <script src="scripts.js"></script>
   </body>
